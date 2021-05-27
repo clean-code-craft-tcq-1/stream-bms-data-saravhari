@@ -1,6 +1,5 @@
 package streambms;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import streambms.constant.BatteryFactor;
@@ -32,9 +31,7 @@ public class BatteryManagementSystem {
 				batteryData = mapper.writeValueAsString(sendBatteryParameters(getBatteryParameters()));
 				System.out.println(batteryData);
 			}
-		} catch (JsonProcessingException e) {
-			e.printStackTrace();
-		} catch (InterruptedException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
