@@ -24,15 +24,18 @@ public class BatteryManagementSystem {
 	}
 
 	public static void sendToConsole() {
-		for (int i=0; i<10; i++) {
-			try {
+		ObjectMapper mapper = new ObjectMapper();
+		String batteryData;
+		try {
+			for (int i = 0; i < 10; i++) {
 				Thread.sleep(2000);
-				ObjectMapper mapper = new ObjectMapper();
-				String batteryData = mapper.writeValueAsString(sendBatteryParameters(getBatteryParameters()));
+				batteryData = mapper.writeValueAsString(sendBatteryParameters(getBatteryParameters()));
 				System.out.println(batteryData);
-			} catch (InterruptedException | JsonProcessingException e) {
-				e.printStackTrace();
 			}
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
 	}
 
