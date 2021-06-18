@@ -1,4 +1,4 @@
-package streambms;
+package streambms.sender;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

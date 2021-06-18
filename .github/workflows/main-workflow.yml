@@ -33,5 +33,5 @@ jobs:
         path: ./target/site/jacoco
         retention-days: 1
     - name: Build main
-      run: mvn compile exec:java -Dexec.mainClass="streambms.BMSService"
+      run: mvn compile exec:java -Dexec.mainClass="streambms.sender.BMSSenderService"
     

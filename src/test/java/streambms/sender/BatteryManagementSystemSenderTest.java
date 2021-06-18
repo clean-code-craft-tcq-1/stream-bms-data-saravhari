@@ -1,4 +1,4 @@
-package streambms;
+package streambms.sender;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import streambms.model.Battery;
 
-public class BatteryManagementSystemTest {
+public class BatteryManagementSystemSenderTest {
 
 	@Test
 	public void givenBatteryParametesAsNull_whenStreamingData_thenReturnNull() {
