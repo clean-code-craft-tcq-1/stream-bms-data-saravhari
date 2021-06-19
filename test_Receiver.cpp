@@ -63,7 +63,7 @@ TEST_CASE("Test case to test the Average Value")
 
 TEST_CASE("Test case to test the null values")
 {
-  float arr[] = NULL;
+  float arr[] = Null;
   float average = 0;
   REQUIRE(Calc_Average(arr, 2) == average);
 }
