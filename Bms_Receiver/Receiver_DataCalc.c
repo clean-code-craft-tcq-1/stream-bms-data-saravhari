@@ -55,11 +55,18 @@ float Calc_Average(float Val_Arr[], int NoOfValues)
   float Average = 0;
   float Sum = 0;
   
-  for(int i=0; i<NoOfValues; i++)
+  if((Val_Arr == NULL) || (NoOfValues == 0))
   {
-	  Sum += Val_Arr[i];
+    Average = 0;
   }
-  
+ else
+ {
+   for(int i=0; i<NoOfValues; i++)
+   {
+     Sum += Val_Arr[i];
+   }
+ }
+	
   Average = Sum/NoOfValues;
   
   return Average;
