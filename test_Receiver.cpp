@@ -60,7 +60,7 @@ TEST_CASE("Test case to test the Average Value")
   float average = (10.3+10.1)/2;
   float calc_aver = 0;
   calc_aver = Calc_Average(arr, 2);
-  REQUIRE((calc_aver - average) == 0);
+  REQUIRE((calc_aver - average) == 0.0f);
 }
 
 TEST_CASE("Test case to test the empty array for average")
