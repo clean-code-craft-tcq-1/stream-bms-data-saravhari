@@ -1,4 +1,4 @@
-name: Build and Run
+name: Receiver Build and Run
 
 on: [push, pull_request]
 
@@ -16,7 +16,7 @@ jobs:
         sudo apt-get install -y gcovr
         
     - name: Software build for Testing
-      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testchecker BMS_Receiver/Receiver_DataCalc.c test_Receiver.cpp
+      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testchecker Bms_Receiver/Receiver_DataCalc.c test_Receiver.cpp
       
     - name: run
       run: ./testchecker
@@ -32,7 +32,7 @@ jobs:
         retention-days: 1
         
     - name: Software build for production
-      run: g++ -Wall -Wextra -o bmssender BMS_Receiver/*.c*
+      run: g++ -Wall -Wextra -o bmsReceiver Bms_Receiver/*.c*
       
     - name: bmsReceiver production
       run: ./bmsReceiver
