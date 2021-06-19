@@ -59,8 +59,9 @@ TEST_CASE("Test case to test the Average Value")
   float arr[] = {10.3,10.1};
   float average = (10.3+10.1)/2;
   float calc_aver = 0;
+  float epsilon = 0.001;
   calc_aver = Calc_Average(arr, 2);
-  REQUIRE((calc_aver - average) == 0.0f);
+  REQUIRE(abs(calc_aver - average) < epsilon);
 }
 
 TEST_CASE("Test case to test the empty array for average")
