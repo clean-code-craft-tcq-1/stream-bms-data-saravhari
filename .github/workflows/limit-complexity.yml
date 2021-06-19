@@ -13,4 +13,4 @@ jobs:
       run: pip install lizard
 
     - name: Limit complexity
-      run: $HOME/.local/bin/lizard *.java --CCN 3
+      run: $HOME/.local/bin/lizard src/* --CCN 3
