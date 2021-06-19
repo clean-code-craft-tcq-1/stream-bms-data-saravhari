@@ -8,6 +8,6 @@
 
 TEST_CASE("Test case to test the Maximum Value with less Value")
 {
-  REQUIRE(Calc_Max(10.1, 20.2) == (float)20.2);
+  REQUIRE(Calc_Max(10.1, 20.2) == 20.2);
 }
 
