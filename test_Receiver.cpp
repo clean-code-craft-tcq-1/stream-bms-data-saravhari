@@ -8,6 +8,9 @@
 
 TEST_CASE("Test case to test the Maximum Value with less Value")
 {
-  REQUIRE(Calc_Maxi(10.1, 20.1)== 20.1);
+  float current_value = 10.1;
+  float prev_maxi = 20.1;
+  float maximum = 20.1;
+  REQUIRE(Calc_Max(current_value, prev_maxi)== maximum);
 }
 
