@@ -50,18 +50,18 @@ TEST_CASE("Test case to test the Minimum Value with negative Value")
 {
   float current_value = -0.5;
   float prev_mini = -1.8;
-  float mini_value = -0.5;
+  float mini_value = -1.8;
   REQUIRE(Calc_Mini(current_value, prev_mini) == mini_value);
 }
 
 TEST_CASE("Test case to test the Average Value")
 {
   float arr[] = {10.3,10.1};
-  float average = 10.2;
+  float average = (10.3+10.1)/2;
   REQUIRE(Calc_Average(arr, 2) == average);
 }
 
-TEST_CASE("Test case to test the empty values for average")
+TEST_CASE("Test case to test the empty array for average")
 {
   float arr[] = {};
   float average = 0;
