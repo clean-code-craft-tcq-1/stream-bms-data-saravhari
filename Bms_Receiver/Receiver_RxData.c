@@ -12,6 +12,7 @@
 #include "math.h"
 #include "stdlib.h"
 #include "string.h"
+#include "test_receiver.h"
 
 void analyse_data(float temperature, float soc, float chargerate)
 {
