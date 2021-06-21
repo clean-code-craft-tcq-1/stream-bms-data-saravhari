@@ -15,14 +15,14 @@ jobs:
         java-version: 1.8
     
     - name: Sender Build
-      run: mvn -f compile exec:java -Dexec.mainClass="streambms.sender.BMSSenderService"
+      run: mvn compile exec:java -Dexec.mainClass="streambms.sender.BMSSenderService"
     
     - name: Receiver Build
       run:  g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o bmsReceiver Bms_Receiver/*.c*
         
     - name: Pipe
       run: |
-         mvn -f compile exec:java -Dexec.mainClass="streambms.sender.BMSSenderService"
+         mvn compile exec:java -Dexec.mainClass="streambms.sender.BMSSenderService"
          g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o bmsReceiver Bms_Receiver/*.c*
          
     - name: bmsReceiver production
