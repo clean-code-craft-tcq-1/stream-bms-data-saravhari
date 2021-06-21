@@ -29,14 +29,13 @@ void analyse_data(float temperature, float soc, float chargerate)
   float avg_soc = 0;
   float avg_chargerate = 0;
   
-  
-  printf("current -%f %f %f\n",temperature,soc,chargerate);
-  if(firstTimeFlag == 0)
+   if(firstTimeFlag == 0)
   {
-    firstTimeFlag = 1;
+    firstTimeFlag = 1;     
     max_temperature = min_temperature = temperature;
     max_soc = min_soc = soc;
     max_chargerate = min_chargerate = chargerate;
+    printf("            Max    Min    Avg\n");
   }
   else
   {
@@ -59,10 +58,9 @@ void analyse_data(float temperature, float soc, float chargerate)
     avg_soc = Calc_Average(soc_array, 5);
     avg_chargerate = Calc_Average(chargerate_array, 5);
                                
-  
-  printf("Temperature %6.2f  %6.2f  %6.2f\n",max_temperature, min_temperature, avg_temperature);
-  printf("SOC         %6.2f  %6.2f  %6.2f\n",max_soc, min_soc, avg_soc);
-  printf("Charge Rate %6.2f  %6.2f  %6.2f\n",max_chargerate, min_chargerate, avg_chargerate);
+    printf("Temperature %6.2f  %6.2f  %6.2f\n",max_temperature, min_temperature, avg_temperature);
+    printf("SOC         %6.2f  %6.2f  %6.2f\n",max_soc, min_soc, avg_soc);
+    printf("Charge Rate %6.2f  %6.2f  %6.2f\n",max_chargerate, min_chargerate, avg_chargerate);
 }
 
 /* Function Details *******************************************************************************************
@@ -81,8 +79,6 @@ void decode_data(char *Copy_buffer, float *temperature, float *soc, float *charg
 
   copy_count = 15;
   value_count = 0;
-  
-  printf("copy buffer-%s\n",Copy_buffer);
   
   if(Copy_buffer[2] == 't')
   {         
@@ -105,12 +101,9 @@ void decode_data(char *Copy_buffer, float *temperature, float *soc, float *charg
       ChargeRate_buffer[value_count++] = Copy_buffer[copy_count++];
     }
 
-    printf("Temp - %s %s %s\n",temp_buffer,soc_buffer,ChargeRate_buffer);
     *temperature = atof(temp_buffer);
     *soc = atof(soc_buffer);
-    *chargerate = atof(ChargeRate_buffer);
-     printf("Temper -%f %f %f\n",temperature,soc,chargerate);
-    
+    *chargerate = atof(ChargeRate_buffer);    
     
   }
 }
@@ -138,16 +131,12 @@ void receive_data()
       scanf("%s", rv_data);
       Copy_buffer = strstr(rv_data, "{\"temperature\":");
       
-      printf("Rcv data-%s\n",rv_data);
       if(Copy_buffer != NULL)
       {
         decode_data(Copy_buffer, &temperature, &soc, &chargerate);
         analyse_data(temperature, soc, chargerate);
       }
-      else
-      {
-        printf("copy data-%s\n",Copy_buffer);
-      }
+      
     }while(count++ <= 150);
 
 }
