@@ -65,11 +65,12 @@ int main() {
         printf("\n%d-Received Data* %s\n",count,Copy_buffer);
         if(Copy_buffer[2] == 't')
         {
+          printf("ok\n");
          
-          while((Copy_buffer[copy_count] != ',') && (value_count <= 6))
+          /*while((Copy_buffer[copy_count] != ',') && (value_count <= 6))
           {
             temp_buffer[value_count++] = Copy_buffer[copy_count++];
-          }
+          }*/
           
           /*copy_count +=7;
           while(Copy_buffer[copy_count]!=',')
@@ -89,6 +90,10 @@ int main() {
           
           //printf(" Temperature-%f-%f-%f\n",temperature,soc,chargerate);
             
+        }
+        else
+        {
+          printf("Not ok\n");
         }
         
       }
