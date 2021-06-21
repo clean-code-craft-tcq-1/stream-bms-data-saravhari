@@ -24,8 +24,8 @@ void analyse_data(float temperature, float soc, float chargerate)
   Calc_MinMax(chargerate, &max_chargerate, &min_chargerate);
   
   printf("Temperature %6.2f  %6.2f  %6.2f\n",max_temperature, min_temperature, avg_temperature);
-  printf("SOC         %6.2f  %6.2f  %6.2f\n"max_soc, min_soc, avg_soc);
-  printf("Charge Rate %6.2f  %6.2f  %6.2f\n"max_chargerate, min_chargerate, avg_chargerate);
+  printf("SOC         %6.2f  %6.2f  %6.2f\n",max_soc, min_soc, avg_soc);
+  printf("Charge Rate %6.2f  %6.2f  %6.2f\n",max_chargerate, min_chargerate, avg_chargerate);
 }
 
 /* Function Details *******************************************************************************************
