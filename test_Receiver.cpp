@@ -3,6 +3,7 @@
 
 #include "test/catch.hpp"
 #include "Bms_Receiver/Receiver_DataCalc.h"
+#include "Bms_Receiver/Receiver_RxData.h"
 #include "stddef.h"
 #include "string.h"
 
