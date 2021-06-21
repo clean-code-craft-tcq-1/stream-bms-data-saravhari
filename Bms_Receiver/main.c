@@ -66,7 +66,7 @@ int main() {
         if(Copy_buffer[2] == 't')
         {
          
-          while(Copy_buffer[copy_count]!=',')
+          while((Copy_buffer[copy_count] != ',') && (value_count <= 6))
           {
             temp_buffer[value_count++] = Copy_buffer[copy_count++];
           }
