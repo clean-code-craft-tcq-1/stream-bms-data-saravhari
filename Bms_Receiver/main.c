@@ -37,20 +37,21 @@ void delay(int seconds)
 * Returns       : 0
 * *********************************************************************************************************** */
 int main() {
-    for(int i=0;i<100;i++)
+  int count;
+  char rv_data[1000];
+  char search[] = "{\"temperature\":";
+  char *Copy_buffer = NULL;
+    do
     {
-      //delay(2);
-     /* for(int j=0;j<=10000;j++)
+      scanf("%s", rv_data);
+      ptr = strstr(rv_data, search);
+      if(ptr != NULL)
       {
-        for(int k=0;k<=10000;k++)
-        {
-        }
-      }*/
-    char rv_data[1000];
-    scanf("%s", rv_data);
-    printf("\n%d-Received Data* %s\n",i,rv_data);
-        
-      
-    }
+        printf("\n%d-Received Data* %s\n",count,ptr);
+      }
+      else
+      {
+      }     
+    }while(count++ <= 150)
     return 0;
 }
