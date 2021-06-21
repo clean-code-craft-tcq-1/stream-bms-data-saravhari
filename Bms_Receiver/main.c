@@ -40,9 +40,9 @@ int main() {
   int count = 0;
   char rv_data[1000];
   char search[] = "{\"temperature\":";
-  char *temp_buffer = NULL;
-  char *soc_buffer = NULL;
-  char *ChargeRate_buffer = NULL;
+  char temp_buffer[] = {0};
+  char soc_buffer[] = {0};
+  char ChargeRate_buffer = {0};
   char *Copy_buffer = NULL;
   int copy_count = 15;
   int value_count = 0;
@@ -54,7 +54,7 @@ int main() {
   
     do
     {
-      temp_buffer = soc_buffer = ChargeRate_buffer = NULL;
+      temp_buffer[0] = soc_buffer[0] = ChargeRate_buffer[0] = '\0';
       copy_count = 15;
       value_count = 0;
       
@@ -69,9 +69,7 @@ int main() {
          
           while((Copy_buffer[copy_count] != ',') && (value_count <= 6))
           {
-            //temp_buffer[value_count++] = Copy_buffer[copy_count++];
-            value_count++;
-            copy_count++;
+            temp_buffer[value_count++] = Copy_buffer[copy_count++];
           }
           printf("count-%d %d\n",value_count,copy_count);
           /*copy_count +=7;
