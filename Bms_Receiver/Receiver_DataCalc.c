@@ -23,7 +23,7 @@ void Calc_MinMax(float current_value, float *max_value, float *min_value)
 	
 	if(current_value < *min_value)
 	{
-		*min_value = *current_value;
+		*min_value = current_value;
 	}
 }
 
