@@ -13,6 +13,21 @@
 #include "stdlib.h"
 #include "string.h"
 
+void analyse_data(float *bms_parameters)
+{
+  static float min_temperature = min_soc = min_chargerate = 0;
+  static float max_temperature = max_soc = max_chargerate = 0;
+  static float avg_temperature = avg_soc = avg_chargerate = 0;
+  
+  Calc_MinMax(bms_parameters[0], &max_temperature, &min_temperature);
+  Calc_MinMax(bms_parameters[1], &max_soc, &min_soc);
+  Calc_MinMax(bms_parameters[2], &max_chargerate, &min_chargerate);
+  
+  printf("Temperature %6.2f  %6.2f  %6.2f\n",max_temperature, min_temperature, avg_temperature);
+  printf("SOC         %6.2f  %6.2f  %6.2f\n"max_soc, min_soc, avg_soc);
+  printf("Charge Rate %6.2f  %6.2f  %6.2f\n"max_chargerate, min_chargerate, avg_chargerate);
+}
+
 /* Function Details *******************************************************************************************
 * Function Name : receive_data
 * Description   : main function to receive the Data
@@ -71,7 +86,6 @@ void receive_data()
   int count = 0;
   char rv_data[2000] = {0};
   char *Copy_buffer = NULL;
-  float temperature = soc = chargerate = 0;  
   float *bms_parameters = NULL;
   
     do
@@ -84,7 +98,7 @@ void receive_data()
       
       if(Copy_buffer != NULL)
       {
-        decode_data(Copy_buffer, bms_parameters);
+        decode_data(Copy_buffer, &bms_parameters);
         analyse_data(bms_parameters);
       }    
     }while(count++ <= 150);
