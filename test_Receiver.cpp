@@ -116,3 +116,9 @@ TEST_CASE("Test case to test the Min Max Average")
 	analyse_data( temperature, soc, chargerate);
 }
 
+TEST_CASE("Test case to test the Dummy scan")
+{
+	char *rv_data;
+	test_Scanf(rv_data);
+}
+
