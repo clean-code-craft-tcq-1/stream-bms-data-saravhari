@@ -104,6 +104,6 @@ TEST_CASE("Test case to test the decode operation")
 	float soc =0;
 	float chargerate=0;
 	float epsilon = 0.001;
-  decode_data(Copy_bufferr, &temperature, &soc, &chargerate);
+  decode_data(Copy_buffer, &temperature, &soc, &chargerate);
   REQUIRE(abs(temperature - 96.59) < epsilon);
 }
