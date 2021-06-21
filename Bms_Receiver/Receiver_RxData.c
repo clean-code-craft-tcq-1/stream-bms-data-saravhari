@@ -114,42 +114,44 @@ void decode_data(char *Copy_buffer, float *temperature, float *soc, float *charg
 * Arguments     : -
 * Returns       : 0
 * *********************************************************************************************************** */
-void receive_data() 
+int receive_data() 
 {
-  int count = 0;
-  char rv_data[2000] = {0};
-  char *Copy_buffer = NULL;
-  float temperature = 0;
-  float soc = 0;
-  float chargerate = 0;
-  
-    do
-    {
-      rv_data[0] = '\0';
-      Copy_buffer = NULL;
-      
-      #if(TEST_ON == TRUE)
-        test_Scanf(rv_data);
-      #else
-        scanf("%s", rv_data);
-      #endif
-      
-      Copy_buffer = strstr(rv_data, "{\"temperature\":");
-      
-      if(Copy_buffer != NULL)
-      {
-        decode_data(Copy_buffer, &temperature, &soc, &chargerate);
-        analyse_data(temperature, soc, chargerate);
-      }
-      
-    }while(count++ <= STREAM_COUNT);
+	int count = 0;
+	char rv_data[2000] = {0};
+	char *Copy_buffer = NULL;
+	float temperature = 0;
+	float soc = 0;
+	float chargerate = 0;
+	int ret_val = 0;
 
+	do
+	{
+		rv_data[0] = '\0';
+		Copy_buffer = NULL;
+
+		#if(TEST_ON == TRUE)
+			test_Scanf(rv_data);
+		#else
+			scanf("%s", rv_data);
+		#endif
+
+		Copy_buffer = strstr(rv_data, "{\"temperature\":");
+
+		if(Copy_buffer != NULL)
+		{
+			decode_data(Copy_buffer, &temperature, &soc, &chargerate);
+			analyse_data(temperature, soc, chargerate);
+			ret_val = 1;
+		}
+	}while(count++ <= STREAM_COUNT);
+	
+	return ret_val;
 }
 
 #if(TEST_ON == TRUE)
 void test_Scanf(char *rv_data)
 {
-	char data[100] = "{"temperature":36.19,"soc":56.37,"chargeRate":0.72}";
+	char data[100] = "{\"temperature\":36.19,\"soc\":56.37,\"chargeRate\":0.72}";
 	strcpy(rv_data , data);
 }
 #endif
