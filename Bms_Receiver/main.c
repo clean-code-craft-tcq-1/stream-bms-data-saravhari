@@ -60,7 +60,7 @@ int main() {
       if(Copy_buffer != NULL)
       {
         printf("\n%d-Received Data* %s\n",count,Copy_buffer);
-        if(Copy_buffer[2] == 't')
+        /*if(Copy_buffer[2] == 't')
         {
          
           while(Copy_buffer[copy_count]!=',')
@@ -86,7 +86,7 @@ int main() {
           
           printf(" Temperature-%f-%f-%f\n",temperature,soc,chargerate);
             
-        }
+        }*/
         
       }
       else
