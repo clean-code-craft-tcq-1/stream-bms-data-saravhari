@@ -39,7 +39,7 @@ void delay(int seconds)
 int main() {
     for(int i=0;i<100;i++)
     {
-      delay(2);
+      //delay(2);
      /* for(int j=0;j<=10000;j++)
       {
         for(int k=0;k<=10000;k++)
