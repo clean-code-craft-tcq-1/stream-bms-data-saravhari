@@ -10,8 +10,7 @@
 
 
 /* ***************************** Prototypes ***************************** */
-float Calc_Maxi(float current_value, float prev_maxi);
-float Calc_Mini(float current_value, float prev_mini);
+void Calc_MinMax(float current_value, float *max_value, float *min_value);
 float Calc_Average(float Val_Arr[], int NoOfValues);
 
 #endif
