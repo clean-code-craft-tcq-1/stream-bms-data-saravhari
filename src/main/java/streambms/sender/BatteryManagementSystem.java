@@ -7,6 +7,8 @@ import streambms.model.Battery;
 
 public class BatteryManagementSystem {
 
+	private static BatteryFactor batteryFactor = new BatteryFactor();
+
 	public static Battery sendBatteryParameters(Battery battery) {
 		if (battery == null)
 			return null;
@@ -15,9 +17,9 @@ public class BatteryManagementSystem {
 	}
 
 	public static Battery getBatteryParameters() {
-		float temperature = getRandomNumber(BatteryFactor.MIN_TEMPERATURE, BatteryFactor.MAX_TEMPERATURE);
-		float soc = getRandomNumber(BatteryFactor.MIN_SOC, BatteryFactor.MAX_SOC);
-		float chargeRate = getRandomNumber(BatteryFactor.MIN_CHANGE_RATE, BatteryFactor.MAX_CHANGE_RATE);
+		float temperature = getRandomNumber(batteryFactor.MIN_TEMPERATURE, batteryFactor.MAX_TEMPERATURE);
+		float soc = getRandomNumber(batteryFactor.MIN_SOC, batteryFactor.MAX_SOC);
+		float chargeRate = getRandomNumber(batteryFactor.MIN_CHANGE_RATE, batteryFactor.MAX_CHANGE_RATE);
 
 		return new Battery(temperature, soc, chargeRate);
 	}
