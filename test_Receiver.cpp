@@ -1,4 +1,5 @@
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
+#include "test_receiver.h"
 
 #include "test/catch.hpp"
 #include "Bms_Receiver/Receiver_DataCalc.h"
