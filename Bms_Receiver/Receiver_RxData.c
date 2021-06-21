@@ -13,7 +13,7 @@
 #include "stdlib.h"
 #include "string.h"
 
-void analyse_data(float *bms_parameters)
+void analyse_data(float temperature, float soc, float chargerate)
 {
   static float min_temperature = min_soc = min_chargerate = 0;
   static float max_temperature = max_soc = max_chargerate = 0;
@@ -34,7 +34,7 @@ void analyse_data(float *bms_parameters)
 * Arguments     : -
 * Returns       : 0
 * *********************************************************************************************************** */
-void decode_data(char *Copy_buffer) 
+void decode_data(char *Copy_buffer, float *temperature, float *soc, float *chargerate) 
 {
   char temp_buffer[10] = {0};
   char soc_buffer[10] = {0};
@@ -68,9 +68,9 @@ void decode_data(char *Copy_buffer)
     }
 
 
-    bms_parameters[0] = atof(temp_buffer);
-    bms_parameters[1] = atof(soc_buffer);
-    bms_parameters[2] = atof(ChargeRate_buffer);
+    *temperature = atof(temp_buffer);
+    *soc = atof(soc_buffer);
+    *chargerate = atof(ChargeRate_buffer);
     
   }
 }
@@ -86,7 +86,7 @@ void receive_data()
   int count = 0;
   char rv_data[2000] = {0};
   char *Copy_buffer = NULL;
-  float *bms_parameters = NULL;
+  float temperature = soc = chargerate = 0;
   
     do
     {
@@ -98,8 +98,8 @@ void receive_data()
       
       if(Copy_buffer != NULL)
       {
-        decode_data(Copy_buffer, &bms_parameters);
-        analyse_data(bms_parameters);
+        decode_data(Copy_buffer, &temperature, &soc, &chargerate);
+        analyse_data(temperature, soc, chargerate);
       }    
     }while(count++ <= 150);
 
