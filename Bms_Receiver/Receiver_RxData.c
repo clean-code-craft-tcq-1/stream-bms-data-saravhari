@@ -136,6 +136,6 @@ void receive_data()
         analyse_data(temperature, soc, chargerate);
       }
       
-    }while(count++ <= 150);
+    }while(count++ <= STREAM_COUNT);
 
 }
