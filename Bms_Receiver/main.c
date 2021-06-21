@@ -20,8 +20,8 @@
 * Returns       : 0
 * *********************************************************************************************************** */
 int main() {
-    char rv_data[12024];
-    scanf("%s\n", rv_data);
-    printf("\n\n\nReceived Data* %s\n\n",rv_data);
+    //char rv_data[12024];
+    //scanf("%s\n", rv_data);
+    //printf("\n\n\nReceived Data* %s\n\n",rv_data);
     return 0;
 }
