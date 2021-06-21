@@ -100,6 +100,7 @@ int main() {
       }
       else
       {
+        printf("\n%d-Wrong Data* %s\n",count,Copy_buffer);
       }     
     }while(count++ <= 150);
   
