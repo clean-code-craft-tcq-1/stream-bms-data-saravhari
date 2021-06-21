@@ -40,19 +40,59 @@ int main() {
   int count = 0;
   char rv_data[1000];
   char search[] = "{\"temperature\":";
+  char *temp_buffer = NULL;
+  char *soc_buffer = NULL;
+  char *ChargeRate_buffer = NULL;
   char *Copy_buffer = NULL;
+  int copy_count = 15;
+  int value_count = 0;
+  
+  float temperature = 0;
+  float soc = 0;
+  float chargerate = 0;
+  
+  
     do
     {
+      temp_buffer = soc_buffer = ChargeRate_buffer = NULL;
       scanf("%s", rv_data);
       Copy_buffer = strstr(rv_data, search);
       if(Copy_buffer != NULL)
       {
         printf("\n%d-Received Data* %s\n",count,Copy_buffer);
+        if(Copy_buffer[2] == 't')
+        {
+         
+          while(Copy_buffer[copy_count]!=',')
+          {
+            temp_buffer[value_count++] = Copy_buffer[copy_count++];
+          }
+          
+          copy_count +=7;
+          while(Copy_buffer[copy_count]!=',')
+          {
+            soc_buffer[value_count++] = Copy_buffer[copy_count++];
+          }
+          
+          copy_count +=14;
+          while(Copy_buffer[copy_count]!='}')
+          {
+            ChargeRate_buffer[value_count++] = Copy_buffer[copy_count++];
+          }
+          
+          temperature = atof(temp_buffer);
+          soc = atof(soc_buffer);
+          chargerate = atof(ChargeRate_buffer);
+          
+          printf(" Temperature-%f-%f-%f\n",temperature,soc,chargerate);
+            
+        }
+        
       }
       else
       {
-        printf("\n%d-Wrong Data* %s\n",count,rv_data);
       }     
     }while(count++ <= 150);
+  
     return 0;
 }
