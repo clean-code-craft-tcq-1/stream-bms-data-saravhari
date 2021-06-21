@@ -38,7 +38,7 @@ void delay(int seconds)
 * *********************************************************************************************************** */
 int main() {
   int count = 0;
-  char search[] = "{\"temperature\":";
+  //char search[] = "{\"temperature\":";
   char rv_data[2000] = {0};
   char temp_buffer[] = {0};
   char soc_buffer[] = {0};
@@ -61,7 +61,7 @@ int main() {
       value_count = 0;
       
       scanf("%s", rv_data);
-      Copy_buffer = strstr(rv_data, search);
+      Copy_buffer = strstr(rv_data, "{\"temperature\":");
       if(Copy_buffer != NULL)
       {
         printf("\n%d-Received Data* %s\n",count,Copy_buffer);
@@ -101,7 +101,7 @@ int main() {
       }
       else
       {
-        printf("\n%d-Wrong Data* %s\n%s\n",count,rv_data,search);
+        printf("\n%d-Wrong Data* %s\n%s\n",count,rv_data);
       }     
     }while(count++ <= 150);
   
