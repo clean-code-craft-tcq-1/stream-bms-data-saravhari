@@ -22,9 +22,13 @@ void analyse_data(float temperature, float soc, float chargerate)
   static float max_soc = 0;
   static float max_chargerate = 0;
   static int firstTimeFlag = 0;
+  static float temperature_array[5] = {0};
+  static float soc_array[5] = {0);
+  static float chargerate_array[5] = {0};                         
   float avg_temperature = 0;
   float avg_soc = 0;
   float avg_chargerate = 0;
+  
   
   printf("current -%f %f %f\n",temperature,soc,chargerate);
   if(firstTimeFlag == 0)
@@ -40,6 +44,21 @@ void analyse_data(float temperature, float soc, float chargerate)
     Calc_MinMax(soc, &max_soc, &min_soc);
     Calc_MinMax(chargerate, &max_chargerate, &min_chargerate);
   }
+                               
+   for(int i=5;i>0;i--)
+   {
+     temperature_array[i-1] = temperature_array[i];
+     soc_array[i-1] = soc_array[i];
+     chargerate_array[i-1] = chargerate_array[i];
+   }
+    temperature_array[5] = temperature;
+    soc_array[5] = soc;
+    chargerate_array[5] = chargerate;
+                               
+    avg_temperature = Calc_Average(temperature_array, 5);
+    avg_soc = Calc_Average(soc_array, 5);
+    avg_chargerate = Calc_Average(chargerate_array, 5);
+                               
   
   printf("Temperature %6.2f  %6.2f  %6.2f\n",max_temperature, min_temperature, avg_temperature);
   printf("SOC         %6.2f  %6.2f  %6.2f\n",max_soc, min_soc, avg_soc);
