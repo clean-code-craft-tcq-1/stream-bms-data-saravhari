@@ -21,7 +21,7 @@ jobs:
     - name: Software build for production
       run: |
       g++ -Wall -Wextra -o bmsReceiver Bms_Receiver/*.c*
-      mvn compile exec:java -Dexec.mainClass="streambms.sender.BMSSenderService" | bmsReceiver
+      mvn compile exec:java -Dexec.mainClass="streambms.sender.BMSSenderService"
       
     - name: bmsReceiver production
       run: ./bmsReceiver
