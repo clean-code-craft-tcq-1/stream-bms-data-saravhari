@@ -11,6 +11,6 @@
 /* ***************************** Prototypes ***************************** */
 void receive_data(void);
 void analyse_data(float temperature, float soc, float chargerate);
-void decode_data(char *Copy_buffer, float *temperature, float *soc, float *chargerate)
+void decode_data(char *Copy_buffer, float *temperature, float *soc, float *chargerate);
 
 #endif
