@@ -86,11 +86,11 @@ int main() {
             ChargeRate_buffer[value_count++] = Copy_buffer[copy_count++];
           }*/
           
-          //temperature = atof(temp_buffer);
+          temperature = atof(temp_buffer);
           /*soc = atof(soc_buffer);
           chargerate = atof(ChargeRate_buffer);*/
           
-          //printf(" Temperature-%f-%f-%f\n",temperature,soc,chargerate);
+          printf(" Temperature-%f-%f-%f\n",temperature,soc,chargerate);
             
         }
         else
