@@ -75,7 +75,7 @@ void decode_data(char *Copy_buffer, float *temperature, float *soc, float *charg
       ChargeRate_buffer[value_count++] = Copy_buffer[copy_count++];
     }
 
-    printf("Temp - %s %s %s\n",temp_buffer,soc_buffer,ChargeRate_buffer):
+    printf("Temp - %s %s %s\n",temp_buffer,soc_buffer,ChargeRate_buffer);
     *temperature = atof(temp_buffer);
     *soc = atof(soc_buffer);
     *chargerate = atof(ChargeRate_buffer);
