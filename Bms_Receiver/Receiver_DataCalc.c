@@ -9,40 +9,24 @@
 #include "Receiver_DataCalc.h"
 
 /* Function Details *******************************************************************************************
-* Function Name : Calc_Maxi
+* Function Name : Calc_MinMax
 * Description   : Checks the current value with the Previous maximum value
 * Arguments     : current_value(float), prev_maxi(float)
 * Returns       : current_value(float) or prev_maxi(float) which is greater
 * *********************************************************************************************************** */
-float Calc_Maxi(float current_value, float prev_maxi)
+void Calc_MinMax(float current_value, float *max_value, float *min_value)
 {
-  if(current_value > prev_maxi)
-  {
-    return current_value;
-  }
-  else
-  {
-    return prev_maxi;
-  }
+	if(current_value > max_value)
+	{
+		max_value = current_value;
+	}
+	
+	if(current_value < min_value)
+	{
+		min_value =  current_value;
+	}
 }
 
-/* Function Details *******************************************************************************************
-* Function Name : Calc_Mini
-* Description   : Checks the current value with the Previous minimum value
-* Arguments     : current_value(float), prev_mini(float)
-* Returns       : current_value(float) or prev_mini(float) which is lesser
-* *********************************************************************************************************** */
-float Calc_Mini(float current_value, float prev_mini)
-{
-  if(current_value < prev_mini)
-  {
-    return current_value;
-  }
-  else
-  {
-    return prev_mini;
-  }
-}
 
 /* Function Details *******************************************************************************************
 * Function Name : Calc_Average
