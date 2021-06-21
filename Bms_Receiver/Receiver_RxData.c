@@ -15,6 +15,7 @@
 
 void analyse_data(float temperature, float soc, float chargerate)
 {
+  /* Local Variables */
   static float min_temperature = 0;
   static float min_soc = 0;
   static float min_chargerate = 0;
@@ -22,9 +23,9 @@ void analyse_data(float temperature, float soc, float chargerate)
   static float max_soc = 0;
   static float max_chargerate = 0;
   static int firstTimeFlag = 0;
-  static float temperature_array[5] = {0};
-  static float soc_array[5] = {0};
-  static float chargerate_array[5] = {0};                         
+  static float temperature_array[NO_OF_AVERAGE] = {0};
+  static float soc_array[NO_OF_AVERAGE] = {0};
+  static float chargerate_array[NO_OF_AVERAGE] = {0};                         
   float avg_temperature = 0;
   float avg_soc = 0;
   float avg_chargerate = 0;
@@ -35,7 +36,7 @@ void analyse_data(float temperature, float soc, float chargerate)
     max_temperature = min_temperature = temperature;
     max_soc = min_soc = soc;
     max_chargerate = min_chargerate = chargerate;
-    printf("            Max    Min    Avg\n");
+    printf("              Max      Min      Avg\n");
   }
   else
   {
@@ -44,19 +45,19 @@ void analyse_data(float temperature, float soc, float chargerate)
     Calc_MinMax(chargerate, &max_chargerate, &min_chargerate);
   }
                                
-   for(int i=5;i>0;i--)
+   for(int i=NO_OF_AVERAGE;i>0;i--)
    {
      temperature_array[i-1] = temperature_array[i];
      soc_array[i-1] = soc_array[i];
      chargerate_array[i-1] = chargerate_array[i];
    }
-    temperature_array[5] = temperature;
-    soc_array[5] = soc;
-    chargerate_array[5] = chargerate;
+    temperature_array[NO_OF_AVERAGE] = temperature;
+    soc_array[NO_OF_AVERAGE] = soc;
+    chargerate_array[NO_OF_AVERAGE] = chargerate;
                                
-    avg_temperature = Calc_Average(temperature_array, 5);
-    avg_soc = Calc_Average(soc_array, 5);
-    avg_chargerate = Calc_Average(chargerate_array, 5);
+    avg_temperature = Calc_Average(temperature_array, NO_OF_AVERAGE);
+    avg_soc = Calc_Average(soc_array, NO_OF_AVERAGE);
+    avg_chargerate = Calc_Average(chargerate_array, NO_OF_AVERAGE);
                                
     printf("Temperature %6.2f  %6.2f  %6.2f\n",max_temperature, min_temperature, avg_temperature);
     printf("SOC         %6.2f  %6.2f  %6.2f\n",max_soc, min_soc, avg_soc);
@@ -71,32 +72,30 @@ void analyse_data(float temperature, float soc, float chargerate)
 * *********************************************************************************************************** */
 void decode_data(char *Copy_buffer, float *temperature, float *soc, float *chargerate) 
 {
+  /* Local variables */
   char temp_buffer[10] = {0};
   char soc_buffer[10] = {0};
   char ChargeRate_buffer[10] = {0};
   int value_count = 0;
-  int copy_count = 0;
-
-  copy_count = 15;
-  value_count = 0;
+  int copy_count = 15;
   
   if(Copy_buffer[2] == 't')
   {         
-    while((Copy_buffer[copy_count] != ',') && (value_count <= 6))
+    while((Copy_buffer[copy_count] != ',') && (value_count <= NO_OF_DIGITS))
     {
       temp_buffer[value_count++] = Copy_buffer[copy_count++];
     }
 
     copy_count +=7;
     value_count = 0;
-    while((Copy_buffer[copy_count]!=',')  && (value_count <= 6))
+    while((Copy_buffer[copy_count]!=',')  && (value_count <= NO_OF_DIGITS))
     {
       soc_buffer[value_count++] = Copy_buffer[copy_count++];
     }
 
     copy_count +=14;
     value_count = 0;
-    while((Copy_buffer[copy_count]!='}') && (value_count <= 6))
+    while((Copy_buffer[copy_count]!='}') && (value_count <= NO_OF_DIGITS))
     {
       ChargeRate_buffer[value_count++] = Copy_buffer[copy_count++];
     }
