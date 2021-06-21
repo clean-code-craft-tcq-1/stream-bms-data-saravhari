@@ -30,7 +30,9 @@ void receive_data()
   int copy_count = 15;
   int value_count = 0;
   
-  float temperature = soc = chargerate = 0;
+  float temperature = 0;
+  float soc = 0;
+  float chargerate = 0;
   
   
     do
@@ -85,7 +87,7 @@ void receive_data()
       }
       else
       {
-        printf("\n%d-Wrong Data* %s\n%s\n",count,rv_data);
+        printf("\n%d-Wrong Data* %s\n\n",count,rv_data);
       }     
     }while(count++ <= 150);
 
