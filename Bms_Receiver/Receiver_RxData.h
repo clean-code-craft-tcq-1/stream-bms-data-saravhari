@@ -8,6 +8,7 @@
 /* ******************************* Defines ******************************* */
 #define NO_OF_AVERAGE 5
 #define NO_OF_DIGITS  6
+#define STREAM_COUNT 150
 
 
 /* ***************************** Prototypes ***************************** */
