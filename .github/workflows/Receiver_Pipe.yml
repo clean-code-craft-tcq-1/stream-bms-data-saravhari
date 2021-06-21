@@ -18,7 +18,7 @@ jobs:
       run: mvn compile exec:java -Dexec.mainClass="streambms.sender.BMSSenderService"
     
     - name: Receiver Build
-      run:  gcc -Wall -Wextra -fprofile-arcs -ftest-coverage -o bmsReceiver Bms_Receiver/*.c*
+      run:  gcc -Wall -Wextra -fprofile-arcs -ftest-coverage -o bmsReceiver Bms_Receiver/*.c* Bms_Receiver/production/test_receiver.h
         
     - name: Pipe
       run: mvn compile exec:java -Dexec.mainClass="streambms.sender.BMSSenderService" | ./bmsReceiver
