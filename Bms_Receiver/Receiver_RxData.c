@@ -15,9 +15,13 @@
 
 void analyse_data(float temperature, float soc, float chargerate)
 {
-  static float min_temperature = min_soc = min_chargerate = 0;
-  static float max_temperature = max_soc = max_chargerate = 0;
-  static float avg_temperature = avg_soc = avg_chargerate = 0;
+  static float min_temperature = 0;
+  static float min_soc = 0;
+  static float min_chargerate = 0;
+  static float max_temperature = 0;
+  static float max_soc = 0;
+  static float max_chargerate = 0;
+  float avg_temperature = avg_soc = avg_chargerate = 0;
   
   Calc_MinMax(temperature, &max_temperature, &min_temperature);
   Calc_MinMax(soc, &max_soc, &min_soc);
