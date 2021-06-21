@@ -82,3 +82,16 @@ TEST_CASE("Test case to test the empty array for average")
   float average = 0;
   REQUIRE(Calc_Average(arr, 0) == average);
 }
+
+TEST_CASE("Test case to test with Dummy Data")
+{
+  /*#if(TEST_ON == TRUE)
+void test_Scanf(char *rv_data)
+{
+	char data[100] = "{\"temperature\":36.19,\"soc\":56.37,\"chargeRate\":0.72}";
+	strcpy(rv_data , data);
+}
+#endif*/
+  /* Dummy data sent */
+  REQUIRE(receive_data() == 1);
+}
