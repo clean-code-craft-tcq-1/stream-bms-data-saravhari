@@ -52,6 +52,8 @@ void decode_data(char *Copy_buffer, float *temperature, float *soc, float *charg
   copy_count = 15;
   value_count = 0;
   
+  printf("copy buffer-%s\n",Copy_buffer);
+  
   if(Copy_buffer[2] == 't')
   {         
     while((Copy_buffer[copy_count] != ',') && (value_count <= 6))
