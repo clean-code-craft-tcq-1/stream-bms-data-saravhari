@@ -2,7 +2,7 @@
 * File Name   : Receiver_DataCalc.c
 * Author      : Arul Kumar Sundaramoorthy
 * Description : Data calculations like Minimum, Maximum & Average for given numbers
-* Functions   : Calc_Maxi, Calc_Mini, Calc_Average
+* Functions   : Calc_MinMax, Calc_Average
 * *********************************************************************************************************** */
 
 /* **************************************** Header Files **************************************************** */
@@ -10,9 +10,9 @@
 
 /* Function Details *******************************************************************************************
 * Function Name : Calc_MinMax
-* Description   : Checks the current value with the Previous maximum value
-* Arguments     : current_value(float), prev_maxi(float)
-* Returns       : current_value(float) or prev_maxi(float) which is greater
+* Description   : Checks the current value with the Previous maximum & Minimum value
+* Arguments     : current_value(float), max_value(float), min_value(float)
+* Returns       : NA
 * *********************************************************************************************************** */
 void Calc_MinMax(float current_value, float *max_value, float *min_value)
 {
