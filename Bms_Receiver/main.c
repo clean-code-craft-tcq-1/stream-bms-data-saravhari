@@ -39,7 +39,7 @@ void delay(int seconds)
 int main() {
   int count = 0;
   char search[] = "{\"temperature\":";
-  char *rv_data = NULL;
+  char rv_data[2000] = {0};
   char temp_buffer[] = {0};
   char soc_buffer[] = {0};
   char ChargeRate_buffer = {0};
@@ -55,7 +55,7 @@ int main() {
     do
     {
       temp_buffer[0] = '\0';
-      rv_data = NULL;
+      rv_data[0] = '\0';
       //temp_buffer[0] = soc_buffer[0] = ChargeRate_buffer[0] = '\0';
       copy_count = 15;
       value_count = 0;
@@ -101,7 +101,7 @@ int main() {
       }
       else
       {
-        printf("\n%d-Wrong Data* %s\n",count,rv_data);
+        printf("\n%d-Wrong Data* %s\n%s\n",count,rv_data,search);
       }     
     }while(count++ <= 150);
   
