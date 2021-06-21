@@ -12,9 +12,7 @@
 #include "math.h"
 #include "stdlib.h"
 #include "string.h"
-#if(TEST_ON == TRUE)
-	#include "test_receiver.h"
-#endif
+#include "test_receiver.h"
 
 
 void analyse_data(float temperature, float soc, float chargerate)
