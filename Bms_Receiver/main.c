@@ -7,6 +7,7 @@
 
 /* **************************************** Header Files **************************************************** */
 #include "Receiver_DataCalc.h"
+#include "Receiver_RxData.h"
 #include "stdio.h"
 #include "math.h"
 #include "stdlib.h"
