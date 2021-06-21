@@ -21,13 +21,13 @@ void delay(int seconds)
 
   // Storing start time
   clock_t start_time = clock();
-  printf("Start %d\n",start_time);
+  printf("Start %ld\n",start_time);
 
   // looping till required time is not achieved
   // which is begin time + wait time in milliseconds 
   while (clock() < start_time + milli_seconds);
   clock_t start_time = clock();
-  printf("Stop %d\n",start_time);
+  printf("Stop %ld\n",start_time);
 }
 
 /* Function Details *******************************************************************************************
