@@ -54,18 +54,15 @@ int main() {
   
     do
     {
-      temp_buffer[0] = '\0';
-      rv_data[0] = '\0';
-      soc_buffer[0] = '\0';
-      ChargeRate_buffer[0] = '\0';
+      temp_buffer[0] = rv_data[0] = soc_buffer[0] = ChargeRate_buffer[0] = '\0';
       copy_count = 15;
       value_count = 0;
       
       scanf("%s", rv_data);
-      Copy_buffer = strstr(rv_data, "{\"temperature\":");
+      //Copy_buffer = strstr(rv_data, "{\"temperature\":");
       if(Copy_buffer != NULL)
       {
-        printf("\n%d-Received Data* %s\n",count,Copy_buffer);
+        //printf("\n%d-Received Data* %s\n",count,Copy_buffer);
         if(Copy_buffer[2] == 't')
         {
           printf("ok\n");
@@ -96,18 +93,18 @@ int main() {
           chargerate = atof(ChargeRate_buffer);
           
           printf(" Temperature-%f-%f-%f\n",temperature,soc,chargerate);
-          printf(" Tempe String-%s-%s-%s\n",temp_buffer,soc_buffer,ChargeRate_buffer);
+          //printf(" Tempe String-%s-%s-%s\n",temp_buffer,soc_buffer,ChargeRate_buffer);
             
         }
         else
         {
-          printf("Not ok\n");
+          //printf("Not ok\n");
         }
         
       }
       else
       {
-        printf("\n%d-Wrong Data* %s\n%s\n",count,rv_data);
+        //printf("\n%d-Wrong Data* %s\n%s\n",count,rv_data);
       }     
     }while(count++ <= 150);
   
