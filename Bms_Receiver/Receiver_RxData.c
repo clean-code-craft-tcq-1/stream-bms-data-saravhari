@@ -21,7 +21,9 @@ void analyse_data(float temperature, float soc, float chargerate)
   static float max_temperature = 0;
   static float max_soc = 0;
   static float max_chargerate = 0;
-  float avg_temperature = avg_soc = avg_chargerate = 0;
+  float avg_temperature = 0;
+  float avg_soc = 0;
+  float avg_chargerate = 0;
   
   Calc_MinMax(temperature, &max_temperature, &min_temperature);
   Calc_MinMax(soc, &max_soc, &min_soc);
@@ -43,7 +45,6 @@ void decode_data(char *Copy_buffer, float *temperature, float *soc, float *charg
   char temp_buffer[10] = {0};
   char soc_buffer[10] = {0};
   char ChargeRate_buffer[10] = {0};
-  float *bms_parameters;
   int value_count = copy_count = 0;
   
   temp_buffer[0] = soc_buffer[0] = ChargeRate_buffer[0] = '\0';
