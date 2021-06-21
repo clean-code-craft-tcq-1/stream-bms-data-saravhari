@@ -42,7 +42,7 @@ int main() {
   char rv_data[2000] = {0};
   char temp_buffer[] = {0};
   char soc_buffer[] = {0};
-  char ChargeRate_buffer = {0};
+  char ChargeRate_buffer[] = {0};
   char *Copy_buffer = NULL;
   int copy_count = 15;
   int value_count = 0;
