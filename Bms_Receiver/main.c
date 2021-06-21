@@ -55,12 +55,15 @@ int main() {
     do
     {
       temp_buffer = soc_buffer = ChargeRate_buffer = NULL;
+      copy_count = 15;
+      value_count = 0;
+      
       scanf("%s", rv_data);
       Copy_buffer = strstr(rv_data, search);
       if(Copy_buffer != NULL)
       {
         printf("\n%d-Received Data* %s\n",count,Copy_buffer);
-        /*if(Copy_buffer[2] == 't')
+        if(Copy_buffer[2] == 't')
         {
          
           while(Copy_buffer[copy_count]!=',')
@@ -68,7 +71,7 @@ int main() {
             temp_buffer[value_count++] = Copy_buffer[copy_count++];
           }
           
-          copy_count +=7;
+          /*copy_count +=7;
           while(Copy_buffer[copy_count]!=',')
           {
             soc_buffer[value_count++] = Copy_buffer[copy_count++];
@@ -78,15 +81,15 @@ int main() {
           while(Copy_buffer[copy_count]!='}')
           {
             ChargeRate_buffer[value_count++] = Copy_buffer[copy_count++];
-          }
+          }*/
           
           temperature = atof(temp_buffer);
-          soc = atof(soc_buffer);
-          chargerate = atof(ChargeRate_buffer);
+          /*soc = atof(soc_buffer);
+          chargerate = atof(ChargeRate_buffer);*/
           
           printf(" Temperature-%f-%f-%f\n",temperature,soc,chargerate);
             
-        }*/
+        }
         
       }
       else
