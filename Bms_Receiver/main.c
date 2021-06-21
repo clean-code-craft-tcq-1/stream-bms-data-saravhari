@@ -40,9 +40,9 @@ int main() {
   int count = 0;
   //char search[] = "{\"temperature\":";
   char rv_data[2000] = {0};
-  char temp_buffer[] = {0};
-  char soc_buffer[] = {0};
-  char ChargeRate_buffer[] = {0};
+  char temp_buffer[10] = {0};
+  char soc_buffer[10] = {0};
+  char ChargeRate_buffer[10] = {0};
   char *Copy_buffer = NULL;
   int copy_count = 15;
   int value_count = 0;
@@ -96,6 +96,7 @@ int main() {
           chargerate = atof(ChargeRate_buffer);
           
           printf(" Temperature-%f-%f-%f\n",temperature,soc,chargerate);
+          printf(" Tempe String-%s-%s-%s\n",temp_buffer,soc_buffer,ChargeRate_buffer);
             
         }
         else
