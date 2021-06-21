@@ -13,4 +13,4 @@ jobs:
       run: pip install lizard
 
     - name: Limit complexity
-      run: $HOME/.local/bin/lizard Bms_Receiver/Receiver_DataCalc.c --CCN 3
+      run: $HOME/.local/bin/lizard Bms_Receiver/*.c --CCN 3
