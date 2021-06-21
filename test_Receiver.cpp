@@ -94,5 +94,5 @@ void test_Scanf(char *rv_data)
 }
 #endif*/
   /* Dummy data sent */
-  REQUIRE(receive_data() == 1);
+  REQUIRE(receive_data() == 0);
 }
