@@ -56,7 +56,8 @@ int main() {
     {
       temp_buffer[0] = '\0';
       rv_data[0] = '\0';
-      //temp_buffer[0] = soc_buffer[0] = ChargeRate_buffer[0] = '\0';
+      soc_buffer[0] = '\0';
+      ChargeRate_buffer[0] = '\0';
       copy_count = 15;
       value_count = 0;
       
@@ -73,22 +74,26 @@ int main() {
           {
             temp_buffer[value_count++] = Copy_buffer[copy_count++];
           }
-          printf("count-%d %d\n",value_count,copy_count);
-          /*copy_count +=7;
-          while(Copy_buffer[copy_count]!=',')
+          //printf("count-%d %d\n",value_count,copy_count);
+          
+          copy_count +=7;
+          value_count = 0;
+          while((Copy_buffer[copy_count]!=',')  && (value_count <= 6))
           {
             soc_buffer[value_count++] = Copy_buffer[copy_count++];
           }
           
           copy_count +=14;
-          while(Copy_buffer[copy_count]!='}')
+          value_count = 0;
+          while((Copy_buffer[copy_count]!='}') && (value_count <= 6))
           {
             ChargeRate_buffer[value_count++] = Copy_buffer[copy_count++];
-          }*/
+          }
+          
           
           temperature = atof(temp_buffer);
-          /*soc = atof(soc_buffer);
-          chargerate = atof(ChargeRate_buffer);*/
+          soc = atof(soc_buffer);
+          chargerate = atof(ChargeRate_buffer);
           
           printf(" Temperature-%f-%f-%f\n",temperature,soc,chargerate);
             
