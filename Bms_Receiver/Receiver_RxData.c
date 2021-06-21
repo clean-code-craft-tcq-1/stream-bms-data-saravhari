@@ -23,7 +23,7 @@ void analyse_data(float temperature, float soc, float chargerate)
   static float max_chargerate = 0;
   static int firstTimeFlag = 0;
   static float temperature_array[5] = {0};
-  static float soc_array[5] = {0);
+  static float soc_array[5] = {0};
   static float chargerate_array[5] = {0};                         
   float avg_temperature = 0;
   float avg_soc = 0;
