@@ -10,5 +10,7 @@
 
 /* ***************************** Prototypes ***************************** */
 void receive_data(void);
+void analyse_data(float *bms_parameters);
+void decode_data(char *Copy_buffer);
 
 #endif
