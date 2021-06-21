@@ -104,11 +104,16 @@ void receive_data()
       scanf("%s", rv_data);
       Copy_buffer = strstr(rv_data, "{\"temperature\":");
       
+      printf("Rcv data-%s\n",rv_data);
       if(Copy_buffer != NULL)
       {
         decode_data(Copy_buffer, &temperature, &soc, &chargerate);
         analyse_data(temperature, soc, chargerate);
-      }    
+      }
+      else
+      {
+        printf("copy data-%s\n",Copy_buffer);
+      }
     }while(count++ <= 150);
 
 }
