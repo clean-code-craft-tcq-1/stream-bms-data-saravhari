@@ -108,7 +108,7 @@ TEST_CASE("Test case to test the decode operation")
 	REQUIRE(abs(temperature - 96.59) < epsilon);
 }
 
-TEST_CASE("Test case to test the decode operation")
+TEST_CASE("Test case to test the Min Max Average")
 {
 	float temperature = 21.78;
 	float soc = 41.78;
