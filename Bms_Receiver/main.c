@@ -44,14 +44,14 @@ int main() {
     do
     {
       scanf("%s", rv_data);
-      ptr = strstr(rv_data, search);
-      if(ptr != NULL)
+      Copy_buffer = strstr(rv_data, search);
+      if(Copy_buffer != NULL)
       {
-        printf("\n%d-Received Data* %s\n",count,ptr);
+        printf("\n%d-Received Data* %s\n",count,Copy_buffer);
       }
       else
       {
       }     
-    }while(count++ <= 150)
+    }while(count++ <= 150);
     return 0;
 }
