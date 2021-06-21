@@ -54,7 +54,8 @@ int main() {
   
     do
     {
-      temp_buffer[0] = soc_buffer[0] = ChargeRate_buffer[0] = '\0';
+      temp_buffer[0] = '\0';
+      //temp_buffer[0] = soc_buffer[0] = ChargeRate_buffer[0] = '\0';
       copy_count = 15;
       value_count = 0;
       
