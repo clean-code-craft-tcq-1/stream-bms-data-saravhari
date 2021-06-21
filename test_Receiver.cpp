@@ -6,7 +6,7 @@
 #include "string.h"
 
 
-TEST_CASE("Test case to test the Maximum Value with lesser Value")
+/*TEST_CASE("Test case to test the Maximum Value with lesser Value")
 {
   float current_value = 10.1;
   float prev_maxi = 20.2;
@@ -69,4 +69,4 @@ TEST_CASE("Test case to test the empty array for average")
   float arr[] = {};
   float average = 0;
   REQUIRE(Calc_Average(arr, 0) == average);
-}
+}*/
