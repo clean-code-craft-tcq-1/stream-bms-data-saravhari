@@ -26,7 +26,7 @@ void delay(int seconds)
   // looping till required time is not achieved
   // which is begin time + wait time in milliseconds 
   while (clock() < start_time + milli_seconds);
-  clock_t start_time = clock();
+  start_time = clock();
   printf("Stop %ld\n",start_time);
 }
 
