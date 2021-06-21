@@ -125,8 +125,13 @@ void receive_data()
     {
       rv_data[0] = '\0';
       Copy_buffer = NULL;
-            
-      scanf("%s", rv_data);
+      
+      #if(TEST_ON == TRUE)
+        test_Scanf(rv_data);
+      #else
+        scanf("%s", rv_data);
+      #endif
+      
       Copy_buffer = strstr(rv_data, "{\"temperature\":");
       
       if(Copy_buffer != NULL)
@@ -138,3 +143,11 @@ void receive_data()
     }while(count++ <= STREAM_COUNT);
 
 }
+
+#if(TEST_ON == TRUE)
+void test_Scanf(char *rv_data)
+{
+	char data[100] = "{"temperature":36.19,"soc":56.37,"chargeRate":0.72}";
+	strcpy(rv_data , data);
+}
+#endif
