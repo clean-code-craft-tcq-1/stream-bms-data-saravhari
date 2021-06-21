@@ -47,15 +47,15 @@ void analyse_data(float temperature, float soc, float chargerate)
     Calc_MinMax(chargerate, &max_chargerate, &min_chargerate);
   }
                                
-   for(int i=NO_OF_AVERAGE;i>0;i--)
+   for(int i=NO_OF_AVERAGE-1;i>0;i--)
    {
-     temperature_array[i-1] = temperature_array[i];
-     soc_array[i-1] = soc_array[i];
-     chargerate_array[i-1] = chargerate_array[i];
+     temperature_array[i] = temperature_array[i-1];
+     soc_array[i] = soc_array[i-1];
+     chargerate_array[i] = chargerate_array[i-1];
    }
-    temperature_array[NO_OF_AVERAGE] = temperature;
-    soc_array[NO_OF_AVERAGE] = soc;
-    chargerate_array[NO_OF_AVERAGE] = chargerate;
+    temperature_array[0] = temperature;
+    soc_array[0] = soc;
+    chargerate_array[0] = chargerate;
                                
     avg_temperature = Calc_Average(temperature_array, NO_OF_AVERAGE);
     avg_soc = Calc_Average(soc_array, NO_OF_AVERAGE);
