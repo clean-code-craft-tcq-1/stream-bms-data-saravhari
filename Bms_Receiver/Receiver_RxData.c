@@ -80,33 +80,30 @@ void decode_data(char *Copy_buffer, float *temperature, float *soc, float *charg
   char ChargeRate_buffer[10] = {0};
   int value_count = 0;
   int copy_count = 15;
-  
-  if(Copy_buffer[2] == 't')
-  {         
-    while(Copy_buffer[copy_count] != ',')
-    {
-      temp_buffer[value_count++] = Copy_buffer[copy_count++];
-    }
-
-    copy_count +=7;
-    value_count = 0;
-    while(Copy_buffer[copy_count]!=',')
-    {
-      soc_buffer[value_count++] = Copy_buffer[copy_count++];
-    }
-
-    copy_count +=14;
-    value_count = 0;
-    while(Copy_buffer[copy_count]!='}')
-    {
-      ChargeRate_buffer[value_count++] = Copy_buffer[copy_count++];
-    }
-
-    *temperature = atof(temp_buffer);
-    *soc = atof(soc_buffer);
-    *chargerate = atof(ChargeRate_buffer);    
-    
+         
+  while(Copy_buffer[copy_count] != ',')
+  {
+    temp_buffer[value_count++] = Copy_buffer[copy_count++];
   }
+
+  copy_count +=7;
+  value_count = 0;
+  while(Copy_buffer[copy_count]!=',')
+  {
+    soc_buffer[value_count++] = Copy_buffer[copy_count++];
+  }
+
+  copy_count +=14;
+  value_count = 0;
+  while(Copy_buffer[copy_count]!='}')
+  {
+    ChargeRate_buffer[value_count++] = Copy_buffer[copy_count++];
+  }
+
+  *temperature = atof(temp_buffer);
+  *soc = atof(soc_buffer);
+  *chargerate = atof(ChargeRate_buffer);    
+    
 }
 
 /* Function Details *******************************************************************************************
