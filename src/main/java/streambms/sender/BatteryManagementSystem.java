@@ -27,7 +27,7 @@ public class BatteryManagementSystem {
 		String batteryData;
 		try {
 			for (int i = 0; i < 10; i++) {
-				//Thread.sleep(2000);
+				Thread.sleep(2000);
 				batteryData = mapper.writeValueAsString(sendBatteryParameters(getBatteryParameters()));
 				System.out.println(batteryData);
 			}
