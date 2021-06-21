@@ -59,7 +59,7 @@ int main() {
       value_count = 0;
       
       scanf("%s", rv_data);
-      //Copy_buffer = strstr(rv_data, "{\"temperature\":");
+      Copy_buffer = strstr(rv_data, "{\"temperature\":");
       if(Copy_buffer != NULL)
       {
         //printf("\n%d-Received Data* %s\n",count,Copy_buffer);
