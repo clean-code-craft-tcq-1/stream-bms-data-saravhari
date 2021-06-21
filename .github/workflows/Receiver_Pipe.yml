@@ -13,15 +13,14 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: Install dependencies
-      run: |
-         pip install flake8
-         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    
+    - name: Sender Build
+      run: mvn compile exec:java -Dexec.mainClass="streambms.sender.BMSSenderService"
+    
+    - name: Receiver Build
+      run:  g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o bmsReceiver Bms_Receiver/*.c*
         
-    - name: Software build for production
+    - name: Pipe
       run: |
+         mvn compile exec:java -Dexec.mainClass="streambms.sender.BMSSenderService"
          g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o bmsReceiver Bms_Receiver/*.c*
-         mvn compile exec:java -Dexec.mainClass="streambms.sender.BMSSenderService" | ./bmsReceiver
-      
-    - name: bmsReceiver production
-      run: ./bmsReceiver
