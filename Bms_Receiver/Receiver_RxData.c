@@ -149,10 +149,10 @@ int receive_data()
 		Copy_buffer = NULL;
 		
 		/* switch to select test string or sender string */
-		#if(TEST_ON == TRUE)
-			test_Scanf(rv_data);
-		#else
+		#if(TEST_ON == FALSE)
 			scanf("%s", rv_data);
+		#else
+			test_Scanf(rv_data);
 		#endif
 		
 		/* to check received rteing is valid or not */
