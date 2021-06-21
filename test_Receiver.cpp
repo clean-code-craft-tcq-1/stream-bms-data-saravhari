@@ -96,3 +96,14 @@ void test_Scanf(char *rv_data)
   /* Dummy data sent */
   REQUIRE(receive_data() == 0);
 }
+
+TEST_CASE("Test case to test the decode operation")
+{
+	char *Copy_buffer = {"{\"temperature\":96.59,\"soc\":57.17,\"chargeRate\":0.39}"};
+	float temperature =0;
+	float soc =0;
+	float chargerate=0;
+	float epsilon = 0.001;
+  decode_data(Copy_bufferr, &temperature, &soc, &chargerate);
+  REQUIRE(abs(temperature - 96.59) < epsilon);
+}
