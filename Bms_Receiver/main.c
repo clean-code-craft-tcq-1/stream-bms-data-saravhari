@@ -21,7 +21,9 @@
 * *********************************************************************************************************** */
 int main() {
     char rv_data[1024];
-    scanf("%s\n", rv_data);
+    while (scanf("%s\n", rv_data) !=EOF)
+    {
     printf("\n\n\nReceived Data* %s\n\n",rv_data);
+    }
     return 0;
 }
