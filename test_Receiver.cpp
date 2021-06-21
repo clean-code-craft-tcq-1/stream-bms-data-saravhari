@@ -58,8 +58,9 @@ TEST_CASE("Test case to test the Minimum Value with greater Value")
 TEST_CASE("Test case to test the Minimum Value with negative Value")
 {
   float current_value = -0.5;
-  float prev_mini = -1.8;
+  float prev_min = -1.8;
   float mini_value = -1.8;
+  float prev_maxi = 0;
   Calc_MinMax(current_value, &prev_maxi, &prev_min);
   REQUIRE(prev_min == mini_value);
 }
