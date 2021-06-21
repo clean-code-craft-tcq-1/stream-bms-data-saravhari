@@ -25,6 +25,7 @@ void analyse_data(float temperature, float soc, float chargerate)
   float avg_soc = 0;
   float avg_chargerate = 0;
   
+  printf("current -%f %f %f\n,"temperature,soc,chargerate);
   Calc_MinMax(temperature, &max_temperature, &min_temperature);
   Calc_MinMax(soc, &max_soc, &min_soc);
   Calc_MinMax(chargerate, &max_chargerate, &min_chargerate);
@@ -47,8 +48,7 @@ void decode_data(char *Copy_buffer, float *temperature, float *soc, float *charg
   char ChargeRate_buffer[10] = {0};
   int value_count = 0;
   int copy_count = 0;
-  
-  temp_buffer[0] = soc_buffer[0] = ChargeRate_buffer[0] = '\0';
+
   copy_count = 15;
   value_count = 0;
   
@@ -75,10 +75,12 @@ void decode_data(char *Copy_buffer, float *temperature, float *soc, float *charg
       ChargeRate_buffer[value_count++] = Copy_buffer[copy_count++];
     }
 
-
+    printf(Temp - %s %s %s\n",temp_buffer,soc_buffer,ChargeRate_buffer):
     *temperature = atof(temp_buffer);
     *soc = atof(soc_buffer);
     *chargerate = atof(ChargeRate_buffer);
+     printf("Temper -%f %f %f\n,"temperature,soc,chargerate);
+    
     
   }
 }
