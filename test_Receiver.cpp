@@ -118,7 +118,7 @@ TEST_CASE("Test case to test the Min Max Average")
 
 TEST_CASE("Test case to test the Dummy scan")
 {
-	char *rv_data;
+	char rv_data[200] = {0};
 	test_Scanf(rv_data);
 }
 
