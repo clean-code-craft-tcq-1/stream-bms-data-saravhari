@@ -37,7 +37,7 @@ void delay(int seconds)
 * Returns       : 0
 * *********************************************************************************************************** */
 int main() {
-  int count;
+  int count = 0;
   char rv_data[1000];
   char search[] = "{\"temperature\":";
   char *Copy_buffer = NULL;
@@ -51,6 +51,7 @@ int main() {
       }
       else
       {
+        printf("\n%d-Wrong Data* %s\n",count,rv_data);
       }     
     }while(count++ <= 150);
     return 0;
