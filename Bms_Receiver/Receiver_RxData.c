@@ -45,7 +45,8 @@ void decode_data(char *Copy_buffer, float *temperature, float *soc, float *charg
   char temp_buffer[10] = {0};
   char soc_buffer[10] = {0};
   char ChargeRate_buffer[10] = {0};
-  int value_count = copy_count = 0;
+  int value_count = 0;
+  int copy_count = 0;
   
   temp_buffer[0] = soc_buffer[0] = ChargeRate_buffer[0] = '\0';
   copy_count = 15;
@@ -91,7 +92,9 @@ void receive_data()
   int count = 0;
   char rv_data[2000] = {0};
   char *Copy_buffer = NULL;
-  float temperature = soc = chargerate = 0;
+  float temperature = 0;
+  float soc = 0;
+  float chargerate = 0;
   
     do
     {
