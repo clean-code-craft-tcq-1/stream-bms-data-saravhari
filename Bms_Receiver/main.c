@@ -43,9 +43,9 @@ int main() {
     scanf("%s", rv_data);
     printf("\n\n\n%d-Received Data* %s\n\n",i,rv_data);
         delay(2);
-      for(int j=0;j<=65000;j++)
+      for(int j=0;j<=10000;j++)
       {
-        for(int k=0;k<=65000;k++)
+        for(int k=0;k<=10000;k++)
         {
         }
       }
