@@ -24,4 +24,4 @@ jobs:
       run: mvn install
         
     - name: Pipe
-      run: java BMSSenderService.java | ./bmsReceiver
+      run: java src/main/java/streambms/sender/BMSSenderService.java | ./bmsReceiver
