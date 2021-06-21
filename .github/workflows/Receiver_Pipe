@@ -1,4 +1,4 @@
-name: Receiver Build and Run
+name: Receiver Pipe
 
 on: [push, pull_request]
 
