@@ -64,6 +64,8 @@ void analyse_data(float temperature, float soc, float chargerate)
     printf("Charge Rate %6.2f  %6.2f  %6.2f\n",max_chargerate, min_chargerate, avg_chargerate);
 }
 
+
+
 /* Function Details *******************************************************************************************
 * Function Name : receive_data
 * Description   : main function to receive the Data
@@ -81,21 +83,21 @@ void decode_data(char *Copy_buffer, float *temperature, float *soc, float *charg
   
   if(Copy_buffer[2] == 't')
   {         
-    while((Copy_buffer[copy_count] != ',') && (value_count <= NO_OF_DIGITS))
+    while(Copy_buffer[copy_count] != ',')
     {
       temp_buffer[value_count++] = Copy_buffer[copy_count++];
     }
 
     copy_count +=7;
     value_count = 0;
-    while((Copy_buffer[copy_count]!=',')  && (value_count <= NO_OF_DIGITS))
+    while(Copy_buffer[copy_count]!=',')
     {
       soc_buffer[value_count++] = Copy_buffer[copy_count++];
     }
 
     copy_count +=14;
     value_count = 0;
-    while((Copy_buffer[copy_count]!='}') && (value_count <= NO_OF_DIGITS))
+    while(Copy_buffer[copy_count]!='}')
     {
       ChargeRate_buffer[value_count++] = Copy_buffer[copy_count++];
     }
