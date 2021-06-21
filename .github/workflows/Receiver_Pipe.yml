@@ -24,3 +24,6 @@ jobs:
       run: |
          mvn compile exec:java -Dexec.mainClass="streambms.sender.BMSSenderService"
          g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o bmsReceiver Bms_Receiver/*.c*
+         
+    - name: bmsReceiver production
+      run: ./bmsReceiver
