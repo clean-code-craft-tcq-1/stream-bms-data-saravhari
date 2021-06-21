@@ -40,16 +40,17 @@ int main() {
     for(int i=0;i<20;i++)
     {
       delay(2);
-    char rv_data[1000];
-    scanf("%s", rv_data);
-    printf("\n\n\n%d-Received Data* %s\n\n",i,rv_data);
-        
       for(int j=0;j<=10000;j++)
       {
         for(int k=0;k<=10000;k++)
         {
         }
       }
+    char rv_data[1000];
+    scanf("%s", rv_data);
+    printf("\n\n\n%d-Received Data* %s\n\n",i,rv_data);
+        
+      
     }
     return 0;
 }
