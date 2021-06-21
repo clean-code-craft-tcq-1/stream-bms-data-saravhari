@@ -67,11 +67,13 @@ int main() {
         {
           printf("ok\n");
          
-          /*while((Copy_buffer[copy_count] != ',') && (value_count <= 6))
+          while((Copy_buffer[copy_count] != ',') && (value_count <= 6))
           {
-            temp_buffer[value_count++] = Copy_buffer[copy_count++];
-          }*/
-          
+            //temp_buffer[value_count++] = Copy_buffer[copy_count++];
+            value_count++;
+            copy_count++;
+          }
+          printf("count-%d %d\n",value_count,copy_count);
           /*copy_count +=7;
           while(Copy_buffer[copy_count]!=',')
           {
