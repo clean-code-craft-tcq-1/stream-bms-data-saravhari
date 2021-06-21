@@ -1,9 +1,9 @@
-name: Limit complexity
+name: Receiver Limit complexity
 
 on: [push, pull_request]
 
 jobs:
-  build:
+  complexcheck:
     runs-on: ubuntu-latest
 
     steps:
@@ -13,4 +13,4 @@ jobs:
       run: pip install lizard
 
     - name: Limit complexity
-      run: $HOME/.local/bin/lizard src/* --CCN 3
+      run: $HOME/.local/bin/lizard Bms_Receiver/Receiver_DataCalc.c --CCN 3
