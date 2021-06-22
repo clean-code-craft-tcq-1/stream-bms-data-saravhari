@@ -99,7 +99,7 @@ void test_Scanf(char *rv_data)
 
 TEST_CASE("Test case to test the decode operation 1st time")
 {
-	char *Copy_buffer = {"{\"temperature\":96.59,\"soc\":57.17,\"chargeRate\":0.39}"};
+	char *Copy_buffer = {"\{\"temperature\":96.59,\"soc\":57.17,\"chargeRate\":0.39\}"};
 	float temperature =0;
 	float soc =0;
 	float chargerate=0;
@@ -110,11 +110,12 @@ TEST_CASE("Test case to test the decode operation 1st time")
 
 TEST_CASE("Test case to test the decode operation 2nd time")
 {
-	char *Copy_buffer = {"{\"temperature\":96.59,\"soc\":17.17,\"chargeRate\":0.39}"};
+	char *Copy_buffer = {"\{\"temperature\":96.59,\"soc\":17.17,\"chargeRate\":0.39\}"};
 	float temperature =0;
 	float soc =0;
 	float chargerate=0;
 	float epsilon = 0.001;
+	decode_data(Copy_buffer, &temperature, &soc, &chargerate);
 	decode_data(Copy_buffer, &temperature, &soc, &chargerate);
 	REQUIRE(abs(soc - 17.17) < epsilon);
 }
